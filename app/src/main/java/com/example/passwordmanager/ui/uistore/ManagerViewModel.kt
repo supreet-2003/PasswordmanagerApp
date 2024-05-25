@@ -15,7 +15,7 @@ class ManagerViewModel(
     private var dao:DaoPass
 ):ViewModel() {
 
-
+    var state = MutableStateFlow(Homescr())
     fun onEvent(event: Events){
         when(event){
             is Events.DeleteAccount -> {
@@ -33,12 +33,10 @@ class ManagerViewModel(
                 viewModelScope.launch {
                     dao.upsertnote(pass = note)
                 }
-                    var _state = MutableStateFlow(Homescr())
 
+//
 //                _state.update {
-//                    it.apply {
-//                        note.Account
-//                    }
+//                    it.copy
 //                }
 
 
